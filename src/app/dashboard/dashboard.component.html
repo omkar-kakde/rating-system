@@ -1,0 +1,71 @@
+<div class="dashboard-container">
+    <h1 class="dashboard-title">Dashboard</h1>
+    <div class="text-right mb-4"> <!-- Added class to align buttons to the right -->
+        <button class="btn btn-info mr-2" (click)="goToMyRatings()" > My Ratings</button> <!-- Added margin right -->
+        <button class="btn btn-info" (click)="goToSubmittedRatings()">Submitted Ratings</button>
+    </div>
+    
+    <!-- Stats Section -->
+    <div class="stats-container">
+        <div class="stat-card">
+            <h2>Total Ratings</h2>
+            <p>{{ totalRatings }}</p>
+            <app-star-rating [rating]="totalRatings"></app-star-rating>
+        </div>
+        <div class="stat-card">
+            <h2>Pending Ratings</h2>
+            <p>{{ pendingRatings }}</p>
+            <app-star-rating [rating]="pendingRatings"></app-star-rating>
+        </div>
+        <div class="stat-card">
+            <h2>Submitted Ratings</h2>
+            <p>{{ submittedRatings }}</p>
+            <app-star-rating [rating]="submittedRatings"></app-star-rating>
+        </div>
+    </div>
+
+    <!-- Ratings Section -->
+    <div *ngIf="hasRatings; else noRatings">
+        <h2>Pending Ratings</h2>
+        <ng-container *ngFor="let rating of ratings">
+            <div *ngIf="rating.status.toLowerCase() === 'pending'" class="rating-card">
+                <h3>{{ rating.title }}</h3>
+                <p>Rating: {{ rating.rating }}</p>
+                <p>Date: {{ rating.date }}</p>
+                <app-star-rating [rating]="rating.rating"></app-star-rating>
+            </div>
+        </ng-container>
+
+        <h2>Submitted Ratings</h2>
+        <ng-container *ngFor="let rating of ratings">
+            <div *ngIf="rating.status.toLowerCase() === 'submitted'" class="rating-card">
+                <h3>{{ rating.title }}</h3>
+                <p>Rating: {{ rating.rating }}</p>
+                <p>Date: {{ rating.date }}</p>
+                <app-star-rating [rating]="rating.rating"></app-star-rating>
+            </div>
+        </ng-container>
+    </div>
+
+    <ng-template #noRatings>
+        <div class="no-ratings">
+            <p>No ratings available.</p>
+        </div>
+    </ng-template>
+
+    <!-- Notifications Section -->
+    <div class="notifications">
+        <h2>Notifications</h2>
+        <div *ngIf="notifications.length === 0" class="no-notifications">
+            <p>No new notifications.</p>
+        </div>
+        <ul>
+            <li *ngFor="let notification of notifications" [class.read]="notification.read">
+                <span (click)="markAsRead(notification.id)" class="notification-message">
+                    {{ notification.message }} 
+                </span>
+                <small class="notification-date">{{ notification.date | date:'short' }}</small>
+            </li>
+        </ul>
+    </div>
+</div>

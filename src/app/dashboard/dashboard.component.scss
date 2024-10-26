@@ -1,0 +1,78 @@
+.dashboard-container {
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background for visibility */
+    border-radius: 8px; /* Rounded corners */
+    // max-width: 800px; /* Set a max width for better layout */
+    margin: 0 auto; /* Center the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.dashboard-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #343a40; /* Darker text color */
+    font-size: 2em; /* Increased font size */
+    font-weight: bold; /* Bold title */
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-between; /* Space between cards */
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background-color: #ffffff; /* White background for cards */
+    border: 1px solid #dee2e6; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Increased padding for better spacing */
+    flex: 1; /* Allow cards to grow equally */
+    margin: 0 10px; /* Space between cards */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    text-align: center;
+    transition: transform 0.2s; /* Smooth transform on hover */
+}
+
+.stat-card:hover {
+    transform: translateY(-3px); /* Slight lift effect on hover */
+    border-color: #007bff; /* Change border color on hover */
+}
+
+.stat-card h2 {
+    color: #007bff; /* Blue color for headings */
+    margin-bottom: 10px; /* Space below heading */
+    font-size: 1.5em; /* Increased font size */
+}
+
+.rating-card {
+    background-color: #f1f1f1; /* Light background for ratings */
+    border-radius: 4px; /* Rounded corners */
+    padding: 15px; /* Increased padding */
+    margin: 10px 0; /* Space between rating cards */
+    border: 1px solid #dee2e6; /* Light border */
+    transition: background-color 0.2s; /* Smooth background transition */
+}
+
+.rating-card:hover {
+    background-color: #e9ecef; /* Slightly darker on hover */
+}
+
+.no-ratings {
+    text-align: center; /* Center text */
+    color: #6c757d; /* Gray color for no ratings message */
+    font-size: 1.2em; /* Increased font size */
+    margin-top: 20px; /* Space above */
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 768px) {
+    .stats-container {
+        flex-direction: column; /* Stack cards vertically on small screens */
+    }
+    
+    .stat-card {
+        margin: 10px 0; /* Margin for stacked cards */
+    }
+}
+
+

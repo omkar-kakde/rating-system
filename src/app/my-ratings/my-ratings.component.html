@@ -1,0 +1,131 @@
+<div class="my-ratings">
+  <h2>My Ratings</h2>
+  
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th>Session Name</th>
+        <th>Date</th>
+        <th>Rating</th>
+        <th>Comments</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rating of ratings; let i = index">
+        <td>{{ rating.title }}</td>
+        <td>{{ rating.date }}</td>
+        <td>
+          <app-star-rating 
+            [(ngModel)]="rating.value"></app-star-rating>
+        </td>
+        <td>
+          <input [(ngModel)]="rating.feedback" placeholder="Comments" class="form-control" />
+        </td>
+        <td>
+          <button 
+            class="btn btn-primary" 
+            (click)="toggleEditMode(i)">
+            {{ editMode[i] ? 'Save' : 'Edit' }}
+          </button>
+          <button 
+            *ngIf="editMode[i]" 
+            class="btn btn-secondary" 
+            (click)="cancelEdit(i)">
+            Cancel
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Add New Rating</h3>
+  <form (ngSubmit)="addRating()">
+    <div class="form-group">
+      <input type="text" 
+             [(ngModel)]="newRating.title" 
+             name="title" 
+             placeholder="Session Title" 
+             required 
+             class="form-control" />
+    </div>
+    <div class="form-group">
+      <app-star-rating 
+        [(ngModel)]="newRating.value" 
+        name="rating"></app-star-rating>
+    </div>
+    <div class="form-group">
+      <input type="text" 
+             [(ngModel)]="newRating.feedback" 
+             name="feedback" 
+             placeholder="Feedback" 
+             class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success">Add Rating</button>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div class="container my-4">
+    <h2>My Ratings</h2>
+    <div class="mb-3">
+      <label for="sortOrder" class="form-label">Sort By:</label>
+      <select id="sortOrder" [(ngModel)]="sortOrder" (change)="applySorting()" class="form-select">
+        <option value="highest">Highest Rating</option>
+        <option value="lowest">Lowest Rating</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-4" *ngFor="let rating of ratings; let i = index">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Session: {{ rating.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Date: {{ rating.date }}</h6>
+  
+            <p class="card-text">
+              Rating: 
+              <app-star-rating [(rating)]="rating.value"></app-star-rating> 
+            </p>
+  
+            <div *ngIf="editMode[i]; else viewMode">
+              <textarea [(ngModel)]="rating.feedback" class="form-control" placeholder="Add your feedback here..."></textarea>
+              <button class="btn btn-success mt-2" (click)="saveRating(rating)">Save</button>
+              <button class="btn btn-secondary mt-2" (click)="cancelEdit(i)">Cancel</button>
+            </div>
+  
+            <ng-template #viewMode>
+              <p class="card-text">Comments: {{ rating.feedback ? rating.feedback : 'No comments provided' }}</p>
+              <button class="btn btn-primary" (click)="toggleEditMode(i)">Edit Feedback</button>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->

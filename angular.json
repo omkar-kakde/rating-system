@@ -32,8 +32,9 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
-            ],
+              "src/styles.scss",
+              "bootstrap/dist/css/bootstrap.min.css"
+                ],
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -103,5 +104,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9660f0d1-e8ac-4ec1-8bdc-8c94e0d5a2c6"
   }
 }

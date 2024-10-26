@@ -1,0 +1,27 @@
+.container {
+    max-width: 600px; /* Limit the width of the form */
+    margin: auto; /* Center the form in the middle of the page */
+    padding: 20px; /* Add padding around the container */
+  }
+  
+  h2 {
+    margin-bottom: 20px; /* Space below the heading */
+  }
+  
+  .form-control {
+    transition: border-color 0.2s; /* Smooth transition for focus */
+  }
+  
+  .form-control:focus {
+    border-color: #007bff; /* Change border color on focus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Add shadow on focus */
+  }
+  
+  .btn {
+    margin-top: 10px; /* Space above the button */
+  }
+  
+  .shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow to the form */
+  }
+  

@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <h2 class="text-center">Submit Your Rating</h2>
+    <form (ngSubmit)="onSubmit(ratingForm)" #ratingForm="ngForm" class="bg-light p-4 rounded shadow">
+      <div class="form-group">
+        <label for="sessionTitle">Session Title</label>
+        <input type="text" id="sessionTitle" name="sessionTitle" ngModel required class="form-control" placeholder="Enter session title">
+      </div>
+      <div class="form-group">
+        <label for="ratingValue">Rating Value</label>
+        <input type="number" id="ratingValue" name="ratingValue" ngModel required class="form-control" placeholder="Enter rating (1-5)" min="1" max="5">
+      </div>
+      <div class="form-group">
+        <label for="feedback">Feedback</label>
+        <textarea id="feedback" name="feedback" ngModel class="form-control" rows="3" placeholder="Enter your feedback here"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Submit Rating</button>
+    </form>
+  </div>
+  
